@@ -1,0 +1,7 @@
+{
+  "name": "Senial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
