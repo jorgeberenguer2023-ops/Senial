@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito Reactivo</ion-title>
+
+    <ion-badge slot="end">
+      Total: {{ precioTotal() }}€
+    </ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    @for (prod of productos(); track prod.id) {
+      <ion-item class="product-item">
+        <ion-label class="product-label">
+          <div class="product-name">{{ prod.nombre }}</div>
+          <div class="product-price">{{ prod.precio }}€</div>
+        </ion-label>
+
+        <ion-button
+          fill="clear"
+          class="remove-button"
+          (click)="eliminarProducto(prod.id)"
+        >
+          ELIMINAR
+        </ion-button>
+      </ion-item>
+    } @empty {
+      <ion-item class="empty-item">
+        <ion-label class="ion-text-center">El carrito está vacío</ion-label>
+      </ion-item>
+    }
+  </ion-list>
+
+  <div class="action-bar">
+    <ion-button expand="block" (click)="agregarProductoAleatorio()">
+      AÑADIR PRODUCTO RANDOM
+    </ion-button>
+  </div>
+</ion-content>
